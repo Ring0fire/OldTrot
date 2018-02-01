@@ -16,7 +16,7 @@ public class playerController : MonoBehaviour {
 
 
     // Use this for initialization
-    void Awake () 
+    void Start () 
     {
         //anim = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
@@ -27,7 +27,7 @@ public class playerController : MonoBehaviour {
     {
         grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
 
-        if (Input.GetButtonDown("Jump") && grounded)
+        if (Input.GetMouseButtonDown(0) && grounded)
         {
             jump = true;
         }
@@ -51,6 +51,5 @@ public class playerController : MonoBehaviour {
             rb2d.AddForce(new Vector2(0f, jumpForce));
             jump = false;
         }
-    }
-
+	}
 }
